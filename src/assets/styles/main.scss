@@ -3,7 +3,7 @@
  * Do not include SCSS code in this file.
  */
 
- /**
+/**
  * Import dependencies
  */
 @use "dependencies";
@@ -13,7 +13,7 @@
  * It's a best practice to use a different partial for each page
  */
 
- @use "layouts/home";
+@use "layouts/home";
 
 /**
  * Do NOT include anything else in this file!
