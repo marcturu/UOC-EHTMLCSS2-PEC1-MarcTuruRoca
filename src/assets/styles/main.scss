@@ -1,20 +1,17 @@
-/**
- * Use this file to import partials.
- * Do not include SCSS code in this file.
- */
-
-/**
- * Import dependencies
- */
 @use "dependencies";
 
-/**
- * Import layouts
- * It's a best practice to use a different partial for each page
- */
+@use "settings/variables";
 
-@use "layouts/home";
+@use "tools/functions";
 
-/**
- * Do NOT include anything else in this file!
- */
+@use "generic/reset";
+
+@use "elements/base";
+
+@use "objects/container";
+@use "objects/grid";
+@use "objects/section";
+
+@use "components/home";
+
+@use "utilities/helpers";
