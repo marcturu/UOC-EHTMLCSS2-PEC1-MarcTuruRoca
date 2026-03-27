@@ -1,0 +1,63 @@
+@use "../settings/variables" as v;
+
+.gallery {
+  padding: 2rem 1rem;
+  background-color: v.$color-background;
+  color: v.$color-text;
+
+  &__container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.875rem;
+    color: v.$color-secondary;
+    margin-bottom: 0.25rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: v.$color-text;
+  }
+
+  &__swiper {
+    position: relative;
+
+    .swiper-slide {
+      opacity: 0.4;
+      transform: scale(0.9);
+      transition: opacity 0.4 ease, transform 0.4s ease;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 0.5rem;
+      }
+
+      &.swiper-slide-active {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: v.$color-text;
+    }
+
+    .swiper-pagination-bullet {
+      background: v.$color-secondary;
+      opacity: 0.25;
+
+      // Clase externa de dependencia Swiper utiliza -active y no --active
+      &.swiper-pagination-bullet-active {
+        opacity: 1;
+        background-color: v.$color-primary;
+      }
+    }
+  }
+}

@@ -11,3 +11,27 @@ $uoc-bg: color.scale($uoc-masterbrand, $lightness: 70%);
 $uoc-highlight: #ff5733;
 
 $mq-min-width: 420px;
+
+$color-background: #121212;
+$color-text: #fff;
+$color-primary: #339933;
+$color-secondary: #66cc66;
+$color-accent-warm: #88cc66;
+$color-accent-danger: #ff5733;
+
+$font-primary: 'Arial', serif;
+$font-secondary: 'Arial', sans-serif;
+
+$spacing-xs: 0.5rem;
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+$spacing-xl: 8rem;
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+$container-max-width: 1200px;
+$container-padding: 1.5rem;

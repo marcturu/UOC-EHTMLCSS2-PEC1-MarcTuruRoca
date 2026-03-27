@@ -1,3 +1,62 @@
+@use '../settings/variables' as v;
+
 body {
+  display: flex;
+  flex-direction: column;
+  font-family: v.$font-primary;
+  font-size: 1rem;
+  color: v.$color-text;
+  background-color: v.$color-background;
+  line-height: 1.6;
+  height: 100vh;
   margin: 0;
+  padding: 2rem;
+}
+
+a {
+  color: v.$color-primary;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: v.$color-secondary;
+  }
+}
+
+h1 { font-size: 1.5rem; margin-bottom: v.$spacing-sm; }
+h2 { font-size: 1.25rem; margin-bottom: v.$spacing-sm; }
+h3 { font-size: 1.125rem; margin-bottom: v.$spacing-sm; }
+h4, h5, h6 { font-size: 1rem; margin-bottom: v.$spacing-xs; }
+
+@media (min-width: v.$bp-md) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+p { margin-bottom: v.$spacing-md; }
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  background-color: v.$color-primary;
+  color: v.$color-text;
+  padding: v.$spacing-sm v.$spacing-md;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: v.$color-secondary;
+  }
+}
+
+input, textarea, select {
+  padding: v.$spacing-sm;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }

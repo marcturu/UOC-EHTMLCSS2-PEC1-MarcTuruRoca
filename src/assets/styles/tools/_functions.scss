@@ -1,3 +1,11 @@
-@function rem($px) {
-  @return ($px / 16) * 1rem;
+@function rem($px, $base: 16) {
+  @return #{$px / $base}rem;
+}
+
+@function color-alpha($color, $alpha) {
+  @return rgba($color, $alpha);
+}
+
+@function fluid($min, $max) {
+  @return clamp(#{$min}, 4vw, #{$min});
 }
