@@ -1,14 +1,17 @@
-/* ----- Lenis - smooth scroll ----- */
 import Lenis from 'lenis';
 
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/swiper.css'
+import 'swiper/modules/navigation.css'
+import 'swiper/modules/pagination.css'
+
+import L from 'leaflet';
+
+/* ----- Lenis - smooth scroll ----- */
 const lenis = new Lenis({
   duration: 1.4,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  direction: 'vertical',
-  smooth: true,
-  smoothTouch: false,
-  touchMultiplier: 2,
-  infinite: false,
 });
 
 function raf(time) {
@@ -21,9 +24,6 @@ requestAnimationFrame(raf);
 console.log(lenis);
 
 /* ----- Swiper - gallery carousel ----- */
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
-
 new Swiper('.gallery__swiper', {
   modules: [Navigation, Pagination],
   loop: true,
@@ -50,8 +50,6 @@ new Swiper('.gallery__swiper', {
 });
 
 /* ----- Leaflet - JP filming locations map ----- */
-import L from 'leaflet';
-
 const map = L.map('leaflet-map', {
   center: [22.058806997702067, -159.5261],
   zoom: 10,
