@@ -7,16 +7,12 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  padding-top: 1rem;
+  padding-block: 1rem;
 
   // Estas 3 lineas calculan activamente la opacidad del header segun el valor --header-opacity al hacer scroll
   background-color: rgba(v.$color-background, var(--header-opacity, 0));
   border-bottom: 1px solid rgba(v.$color-neon, var(--header-opacity, 0));
   backdrop-filter: blur(calc(var(--header-opacity, 0) * 8px));
-
-    @include m.respond-to(md) {
-      padding-block: 1rem;
-    }
 
   &__container {
     display: flex;
@@ -122,6 +118,7 @@
 
     &--open {
       display: flex;
+      background: v.$color-background;
     }
 
     @include m.respond-to(md) {

@@ -1,0 +1,122 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+@use "../tools/functions" as f;
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  &__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0.2) 50%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: v.$spacing-md;
+    padding-inline: v.$container-padding;
+    max-width: 800px;
+    width: 100%;
+    padding: v.$spacing-md;
+  }
+
+  &__pretitle {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: v.$color-neon;
+    text-shadow: 0 0 10px f.color-alpha(v.$color-neon, 0.75);
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: v.$color-text;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.6);
+
+    span {
+      color: v.$color-neon;
+    }
+
+    @include m.respond-to(md) {
+      font-size: 4rem;
+    }
+
+    @include m.respond-to(lg) {
+      font-size: 5.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: v.$spacing-md;
+    color: rgba(v.$color-text, 0.9);
+    max-width: 520px;
+    text-shadow: 0 0 8px rgba(v.$color-background, 1);
+
+    @include m.respond-to(md) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: v.$spacing-md;
+    padding: 0.875rem 2rem;
+    background-color: v.$color-secondary;
+    color: v.$color-text;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+
+    i {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background-color: v.$color-text;
+      box-shadow: 0 0 20px f.color-alpha(v.$color-neon, 0.5);
+    }
+  }
+}
