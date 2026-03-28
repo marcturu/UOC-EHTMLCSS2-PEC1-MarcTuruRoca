@@ -158,8 +158,6 @@ menuBtn.addEventListener('click', () => {
   } else {
     updateHeaderOpacity()
   }
-
-  header.style.paddingBottom = (isOpen && window.innerWidth < 768) ? '0' : '1rem'
 })
 
 /* Cerrar menú (en mobile) al hacer click en un link */
