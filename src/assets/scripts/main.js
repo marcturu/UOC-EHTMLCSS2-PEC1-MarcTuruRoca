@@ -1,5 +1,8 @@
 import Lenis from 'lenis';
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
 
@@ -7,18 +10,28 @@ import L from 'leaflet';
 
 /* ----- Lenis - smooth scroll ----- */
 const lenis = new Lenis({
-  duration: 1.4,
+  duration: 0.9,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
 });
 
 function raf(time) {
   lenis.raf(time);
+  AOS.refresh();
   requestAnimationFrame(raf);
 }
 
 requestAnimationFrame(raf);
 
-console.log(lenis);
+/* ----- AOS - animation on scroll ----- */
+setTimeout(() => {
+  AOS.init({
+    duration: 600,
+    easing: 'ease-out',
+    once: false,
+    offset: 60,
+  });
+}, 500) // Para intentar solucionar el problema de AOS y Lenis al mismo tiempo
+
 
 /* ----- Swiper - gallery carousel ----- */
 new Swiper('.gallery__swiper', {

@@ -1,11 +1,14 @@
+/* Convierte px a rem */
 @function rem($px, $base: 16) {
   @return #{$px / $base}rem;
 }
 
+/* Genera un color ocn opacidad */
 @function color-alpha($color, $alpha) {
   @return rgba($color, $alpha);
 }
 
+/* Clamp de espaciado responsive */
 @function fluid($min, $max) {
   @return clamp(#{$min}, 4vw, #{$min});
 }
