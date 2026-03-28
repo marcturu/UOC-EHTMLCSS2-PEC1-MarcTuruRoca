@@ -12,6 +12,7 @@ import L from 'leaflet';
 const lenis = new Lenis({
   duration: 0.9,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  anchors: true,
 });
 
 function raf(time) {
@@ -131,23 +132,35 @@ const mobileNav = document.querySelector('.header__mobile-nav')
 const mobileLinks = document.querySelectorAll('.header__mobile-link')
 
 /* Poner opacidad de header segun scroll (hasta 1000px) */
-window.addEventListener('scroll', () => {
-  const scrollY = window.scrollY
+const getScrollOpacity = () => {
   const maxScrollY = 1000
-  const opacity = Math.min(scrollY / maxScrollY, 1)
-  header.style.setProperty('--header-opacity', opacity)
-})
+  return Math.min(window.scrollY / maxScrollY, 1)
+}
 
-// Hamburguesa: abrir/cerrar menú mobile
+const updateHeaderOpacity = () => {
+  const isMenuOpen = mobileNav.classList.contains('header__mobile-nav--open')
+  if (isMenuOpen) return //Si el menu está abierto, no se cambia la opacidad (tiene que ser 1)
+  header.style.setProperty('--header-opacity', getScrollOpacity())
+}
+
+window.addEventListener('scroll', updateHeaderOpacity)
+
+/* Hamburguesa: abrir/cerrar menú mobile */
 menuBtn.addEventListener('click', () => {
   const isOpen = mobileNav.classList.toggle('header__mobile-nav--open')
   menuBtn.setAttribute('aria-expanded', isOpen)
   menuBtn.querySelector('i').className = isOpen
     ? 'fa-solid fa-xmark'
     : 'fa-solid fa-bars'
+
+  if (isOpen) {
+    header.style.setProperty('--header-opacity', 1)
+  } else {
+    updateHeaderOpacity()
+  }
 })
 
-// Cerrar menú al hacer click en un link
+/* Cerrar menú (en mobile) al hacer click en un link */
 mobileLinks.forEach((link) => {
   link.addEventListener('click', (e) => {
     e.preventDefault()

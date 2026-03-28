@@ -4,6 +4,6 @@ u.text-center {
   text-align: center;
 }
 
-section[id]:not([id="about"]) {
+section[id] {
   scroll-margin-top: v.$spacing-lg;
 }
