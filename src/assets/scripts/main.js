@@ -2,9 +2,6 @@ import Lenis from 'lenis';
 
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-import 'swiper/swiper.css'
-import 'swiper/modules/navigation.css'
-import 'swiper/modules/pagination.css'
 
 import L from 'leaflet';
 
@@ -27,11 +24,13 @@ console.log(lenis);
 new Swiper('.gallery__swiper', {
   modules: [Navigation, Pagination],
   loop: true,
+  centeredSlides: true,
   slidesPerView: 1,
-  spaceBetween: 0,
+  spaceBetween: 16,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
+    dynamicBullets: true,
   },
   navigation: {
     nextEl: '.swiper-button-next',
@@ -39,12 +38,14 @@ new Swiper('.gallery__swiper', {
   },
   breakpoints: {
     768: {
-      slidesPerView: 1.5,
+      slidesPerView: 1.8,
       spaceBetween: 24,
+      centeredSlides: true,
     },
     1024: {
-      slidesPerView: 2.5,
+      slidesPerView: 2.8,
       spaceBetween: 32,
+      centeredSlides: true,
     },
   },
 });
