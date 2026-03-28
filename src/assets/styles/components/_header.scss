@@ -1,0 +1,147 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding-top: 1rem;
+
+  // Estas 3 lineas calculan activamente la opacidad del header segun el valor --header-opacity al hacer scroll
+  background-color: rgba(v.$color-background, var(--header-opacity, 0));
+  border-bottom: 1px solid rgba(v.$color-neon, var(--header-opacity, 0));
+  backdrop-filter: blur(calc(var(--header-opacity, 0) * 8px));
+
+    @include m.respond-to(md) {
+      padding-block: 1rem;
+    }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: v.$container-max-width;
+    margin-inline: auto;
+    padding-inline: v.$container-padding;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: v.$color-text;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+
+    i {
+      color: v.$color-neon;
+      text-shadow: 0 0 8px rgba(v.$color-neon, 0.4);
+    }
+
+    &:hover {
+      color: v.$color-neon;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include m.respond-to(md) {
+      display: block;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    gap: v.$spacing-md;
+    list-style-type: none;
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: v.$color-text;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.3 ease;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: v.$color-neon;
+      box-shadow: 0 0 6px rgba(v.$color-neon, 0.6);
+      transition: width 0.3 ease;
+    }
+
+    &:hover {
+      color: v.$color-neon;
+
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: v.$color-text;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.3 ease;
+
+    &:hover {
+      color: v.$color-text;
+    }
+
+    @include m.respond-to(md) {
+      display: none;
+    }
+  }
+
+  &__mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background-color: rgba(v.$color-background, 0.98);
+    padding: v.$spacing-sm 0 0 0;
+
+    &--open {
+      display: flex;
+    }
+
+    @include m.respond-to(md) {
+      display: none !important;
+    }
+  }
+
+  &__mobile-link {
+    text-decoration: none;
+    color: v.$color-text;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.75rem v.$container-padding;
+    transition: color 0.3 ease, background-color 0.3 ease;
+
+    &:hover {
+      color: v.$color-neon;
+      background-color: rgba(v.$color-neon, 0.05);
+    }
+  }
+}
