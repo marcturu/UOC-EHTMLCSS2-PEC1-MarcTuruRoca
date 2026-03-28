@@ -1,5 +1,48 @@
-* {
+@use '../settings/variables' as v;
+
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  font-size: inherit;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  font-family: v.$font-primary;
+  background-color: v.$color-background;
+  color: v.$color-text;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }

@@ -1,3 +1,5 @@
+@use '../settings/variables' as v;
+
 .o-section {
-  padding: 2rem 0;
+  padding-block: v.$spacing-lg;
 }
