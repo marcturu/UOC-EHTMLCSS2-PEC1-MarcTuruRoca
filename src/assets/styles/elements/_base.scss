@@ -8,7 +8,7 @@ body {
   color: v.$color-text;
   background-color: v.$color-background;
   line-height: 1.6;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   padding: 2rem;
 }
