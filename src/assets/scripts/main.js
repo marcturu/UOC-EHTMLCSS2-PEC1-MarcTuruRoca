@@ -25,7 +25,7 @@ requestAnimationFrame(raf);
 /* ----- AOS - animation on scroll ----- */
 setTimeout(() => {
   AOS.init({
-    duration: 600,
+    duration: 550,
     easing: 'ease-out',
     once: false,
     offset: 60,
@@ -121,4 +121,47 @@ jpLocations.forEach(({ coords, title, scene }) => {
         <span class="map-popup__scene">${scene}</span>
       </div>`
     )
+})
+
+
+/* ----- Header ----- */
+const header = document.querySelector('.header')
+const menuBtn = document.querySelector('.header__menu-btn')
+const mobileNav = document.querySelector('.header__mobile-nav')
+const mobileLinks = document.querySelectorAll('.header__mobile-link')
+
+/* Poner opacidad de header segun scroll (hasta 1000px) */
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY
+  const maxScrollY = 1000
+  const opacity = Math.min(scrollY / maxScrollY, 1)
+  header.style.setProperty('--header-opacity', opacity)
+})
+
+// Hamburguesa: abrir/cerrar menú mobile
+menuBtn.addEventListener('click', () => {
+  const isOpen = mobileNav.classList.toggle('header__mobile-nav--open')
+  menuBtn.setAttribute('aria-expanded', isOpen)
+  menuBtn.querySelector('i').className = isOpen
+    ? 'fa-solid fa-xmark'
+    : 'fa-solid fa-bars'
+})
+
+// Cerrar menú al hacer click en un link
+mobileLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault()
+    const target = link.getAttribute('href')
+
+    mobileNav.classList.remove('header__mobile-nav--open')
+    menuBtn.setAttribute('aria-expanded', false)
+    menuBtn.querySelector('i').className = 'fa-solid fa-bars'
+
+    setTimeout(() => {
+      const section = document.querySelector(target)
+      if (section) {
+        lenis.scrollTo(section, { offset: -80 })
+      }
+    }, 100)
+  })
 })

@@ -13,6 +13,10 @@ body {
   padding: 2rem;
 }
 
+main {
+  padding-top: v.$spacing-lg;
+}
+
 a {
   color: v.$color-primary;
   transition: color 0.3s;
