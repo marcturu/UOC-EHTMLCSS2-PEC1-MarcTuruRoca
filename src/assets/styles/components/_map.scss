@@ -1,0 +1,5 @@
+@use "../settings/variables" as v;
+
+.map-marker i {
+  color: v.$color-background;
+}
