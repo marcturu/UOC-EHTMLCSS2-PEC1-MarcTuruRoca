@@ -1,0 +1,27 @@
+@use "../settings/variables" as v;
+
+/* Repsonsive breakpoints (bp) */
+@mixin respond-to($bp) {
+  @if $bp == sm {
+    @media (min-width: v.$bp-sm) { @content; }
+  } @else if $bp == md {
+    @media (min-width: v.$bp-md) { @content; }
+  } @else if $bp == lg {
+    @media (min-width: v.$bp-lg) { @content; }
+  } @else if $bp == xl {
+    @media (min-width: v.$bp-xl) { @content; }
+  }
+}
+
+/* Flexbox centrado */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* POsición absoluta */
+@mixin overlay {
+  position: absolute;
+  inset: 0;
+}

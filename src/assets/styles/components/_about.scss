@@ -1,0 +1,104 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+
+.about {
+  padding-block: v.$spacing-lg;
+  background-color: v.$color-background;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-md;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: v.$color-secondary;
+    text-shadow: 0 0 8px rgba(v.$color-neon, 0.4);
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    color: v.$color-text;
+
+    span {
+      color: v.$color-neon;
+      text-shadow: 0 0 8px rgba(v.$color-neon, 0.4);
+    }
+  }
+
+  &__body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: v.$color-text;
+    opacity: 0.85;
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow:
+      0 0 2px v.$color-neon,
+      0 0 20px rgba(v.$color-neon, 0.4),
+      0 0 60px rgba(v.$color-neon, 0.15);
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.35s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.02);
+    }
+  }
+
+  /* Tablet */
+  @include m.respond-to(md) {
+    &__container {
+      flex-direction: row;
+      align-items: center;
+      gap: v.$spacing-lg;
+    }
+
+    &__text {
+      flex: 1;
+    }
+
+    &__image {
+      flex: 1;
+      height: 420px;
+    }
+
+    &__title {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* Desktop */
+  @include m.respond-to(lg) {
+    &__image {
+      height: 500px;
+    }
+
+    &__title {
+      font-size: 2.75rem;
+    }
+  }
+}
