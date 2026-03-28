@@ -1,3 +1,9 @@
+@use "../settings/variables" as v;
+
 u.text-center {
   text-align: center;
+}
+
+section[id]:not([id="about"]) {
+  scroll-margin-top: v.$spacing-lg;
 }
