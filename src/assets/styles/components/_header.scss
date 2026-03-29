@@ -1,5 +1,6 @@
 @use "../settings/variables" as v;
 @use "../tools/mixins" as m;
+@use "../tools/functions" as f;
 
 .header {
   position: fixed;
@@ -34,8 +35,8 @@
     letter-spacing: 0.05em;
 
     i {
-      color: v.$color-neon;
-      text-shadow: 0 0 8px rgba(v.$color-neon, 0.4);
+      color: v.$color-secondary;
+      text-shadow: 0 0 5px f.color-alpha(v.$color-neon, 0.25);
     }
 
     &:hover {
@@ -75,7 +76,7 @@
       width: 0;
       height: 2px;
       background-color: v.$color-neon;
-      box-shadow: 0 0 6px rgba(v.$color-neon, 0.6);
+      box-shadow: 0 0 6px f.color-alpha(v.$color-neon, 0.6);
       transition: width 0.3 ease;
     }
 
@@ -113,7 +114,7 @@
     display: none;
     flex-direction: column;
     gap: 0;
-    background-color: rgba(v.$color-background, 0.98);
+    background-color: f.color-alpha(v.$color-background, 0.95);
     padding: v.$spacing-sm 0 0 0;
 
     &--open {
@@ -138,7 +139,7 @@
 
     &:hover {
       color: v.$color-neon;
-      background-color: rgba(v.$color-neon, 0.05);
+      background-color: f.color-alpha(v.$color-secondary, 0.05);
     }
   }
 }

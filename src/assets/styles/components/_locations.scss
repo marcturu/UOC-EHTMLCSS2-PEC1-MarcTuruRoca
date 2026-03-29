@@ -1,0 +1,123 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+@use "../tools/functions" as f;
+
+.locations {
+
+  &__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: v.$color-neon;
+    text-shadow: 0 0 8px f.color-alpha(v.$color-neon, 0.4);
+    margin-bottom: v.$spacing-sm;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: v.$color-text;
+    margin-bottom: v.$spacing-sm;
+
+    @include m.respond-to(md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__intro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: v.$color-text;
+    opacity: 0.75;
+    max-width: 600px;
+    margin-bottom: v.$spacing-lg;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-md;
+    list-style: none;
+
+    @include m.respond-to(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.locations-card {
+  background-color: #111;
+  border-radius: 0.75erm;
+  overflow: hidden;
+  transition: transform 0.4 ease, box-shadow 0.4s ease;
+
+  &:hover {
+    box-shadow:
+      0 0 12px f.color-alpha(v.$color-neon, 0.2),
+      0 0 0 1px f.color-alpha(v.$color-neon, 0.2);
+  }
+
+  &__link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__image {
+    height: 220px;
+    overflow: hidden;
+
+    @include m.respond-to(md) {
+      height: 300px;
+    }
+
+    @include m.respond-to(lg) {
+      height: 450px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &:hover &__image img {
+    transform: scale(1.06);
+  }
+
+  &__body {
+    padding: v.$spacing-md;
+    display:flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: v.$color-neon;
+    text-shadow: 0 0 6px f.color-alpha(v.$color-neon, 0.5);
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: f.color-alpha(v.$color-text, 0.75);
+    margin: 0;
+  }
+}
