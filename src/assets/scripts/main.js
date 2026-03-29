@@ -51,6 +51,7 @@ new Swiper('.gallery__swiper', {
   touchReleaseOnEdges: true,
   resistanceRatio: 0.85,
   watchSlidesProgress: false,
+  centeredSlides: false,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,

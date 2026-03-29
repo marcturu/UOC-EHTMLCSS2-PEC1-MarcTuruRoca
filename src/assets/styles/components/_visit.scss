@@ -1,0 +1,70 @@
+@use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+@use "../tools/functions" as f;
+
+.visit {
+  &__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: v.$color-neon;
+    text-shadow: 0 0 8px f.color-alpha(v.$color-neon, 0.4);
+    margin-bottom: v.$spacing-sm;
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: v.$spacing-lg;
+
+    @include m.respond-to(md) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: v.$spacing-md;
+
+    @include m.respond-to(lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: v.$spacing-sm;
+    padding: v.$spacing-md;
+    border-radius: 0.75rem;
+    border: 1px solid f.color-alpha(v.$color-neon, 0.2);
+    background-color: f.color-alpha(v.$color-background, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      border-color: f.color-alpha(v.$color-neon, 0.6);
+      box-shadow: 0 0 20px f.color-alpha(v.$color-neon, 0.1);
+    }
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+    color: v.$color-neon;
+    text-shadow: 0 0 10px f.color-alpha(v.$color-neon, 0.4);
+  }
+
+  &__card_title {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  &__card-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: f.color-alpha(v.$color-secondary, 0.75);
+  }
+}

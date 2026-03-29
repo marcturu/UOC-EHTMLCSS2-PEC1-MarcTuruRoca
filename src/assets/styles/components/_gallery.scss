@@ -38,6 +38,12 @@
 
   &__swiper {
     position: relative;
+    overflow: visible;
+
+    .swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
 
     .swiper-slide {
       opacity: 0.4;
@@ -53,11 +59,21 @@
         display: block;
 
         @include m.respond-to(md) {
-          height: 380px;
+          height: 350px;
         }
 
         @include m.respond-to(lg) {
-          height: 480px;
+          height: 400px;
+        }
+      }
+
+      &.swiper-slide-active img {
+        @include m.respond-to(md) {
+          height: 400px;
+        }
+
+        @include m.respond-to(lg) {
+          height: 500px;
         }
       }
 
