@@ -1,26 +1,39 @@
 @use "../settings/variables" as v;
+@use "../tools/mixins" as m;
+@use "../tools/functions" as f;
 
 .gallery {
-  padding: 2rem 1rem;
   background-color: v.$color-background;
-  color: v.$color-text;
+  padding-block: v.$spacing-lg;
 
   &__container {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: v.$spacing-lg;
+    padding-inline: v.$container-padding;
+    max-width: v.$container-max-width;
+    margin-inline: auto;
   }
 
   &__label {
     display: block;
-    font-size: 0.875rem;
-    color: v.$color-secondary;
-    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: v.$color-neon;
+    text-shadow: 0 0 8px f.color-alpha(v.$color-neon, 0.4);
+    margin-bottom: v.$spacing-sm;
   }
 
   &__title {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
     color: v.$color-text;
+
+    @include m.respond-to(md) {
+      font-size: 2.5rem;
+    }
   }
 
   &__swiper {
@@ -28,35 +41,60 @@
 
     .swiper-slide {
       opacity: 0.4;
-      transform: scale(0.9);
-      transition: opacity 0.4 ease, transform 0.4s ease;
+      transition: opacity 0.4s ease;
+      flex-shrink: 0;
+      height: auto;
 
       img {
         width: 100%;
-        height: auto;
+        height: 280px;
         object-fit: cover;
         border-radius: 0.25rem;
+        display: block;
+
+        @include m.respond-to(md) {
+          height: 380px;
+        }
+
+        @include m.respond-to(lg) {
+          height: 480px;
+        }
       }
 
       &.swiper-slide-active {
         opacity: 1;
-        transform: scale(1);
       }
     }
 
     .swiper-button-prev,
     .swiper-button-next {
-      color: v.$color-text;
+      color: v.$color-neon;
+      text-shadow: 0 0 8px f.color-alpha(v.$color-neon, 0.4);
+      transition: color 0.3s ease, scale 0.3s ease;
+
+      &:hover {
+        color: v.$color-primary;
+        scale: 1.075;
+      }
+
+      &::after {
+        font-size: 1.25rem;
+      }
     }
 
     .swiper-pagination-bullet {
-      background: v.$color-secondary;
-      opacity: 0.25;
+      width: 15px;
+      height: 15px;
+      background: v.$color-text;
+      opacity: 0.75;
+      border: 1px solid v.$color-background;
+      box-shadow: 0 0 8px f.color-alpha(v.$color-background, 1);
 
-      // Clase externa de dependencia Swiper utiliza -active y no --active
+      // Clase externa de dependencia Swiper utiliza -active (y no --active)
       &.swiper-pagination-bullet-active {
         opacity: 1;
-        background-color: v.$color-primary;
+        background-color: v.$color-secondary;
+        box-shadow: 0 0 8px f.color-alpha(v.$color-neon, 0.25);
       }
     }
   }
