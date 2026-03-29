@@ -50,14 +50,15 @@
 
 .locations-card {
   background-color: #111;
-  border-radius: 0.75erm;
+  border-radius: 0.25rem;
   overflow: hidden;
+  box-shadow: 0 0 4px f.color-alpha(v.$color-text, 0.2);
   transition: transform 0.4 ease, box-shadow 0.4s ease;
 
   &:hover {
     box-shadow:
       0 0 12px f.color-alpha(v.$color-neon, 0.2),
-      0 0 0 1px f.color-alpha(v.$color-neon, 0.2);
+      0 0 0 1px f.color-alpha(v.$color-neon, 0.3);
   }
 
   &__link {
