@@ -27,7 +27,7 @@
   &__logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: v.$spacing-xs;
     text-decoration: none;
     color: v.$color-text;
     font-size: 1.25rem;
