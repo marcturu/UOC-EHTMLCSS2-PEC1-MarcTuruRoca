@@ -11,8 +11,8 @@
   padding-block: 1rem;
 
   // Estas 3 lineas calculan activamente la opacidad del header segun el valor --header-opacity al hacer scroll
-  background-color: rgba(v.$color-background, var(--header-opacity, 0));
-  border-bottom: 1px solid rgba(v.$color-neon, var(--header-opacity, 0));
+  background-color: f.color-alpha(v.$color-background, var(--header-opacity, 0));
+  border-bottom: 1px solid f.color-alpha(v.$color-neon, var(--header-opacity, 0));
   backdrop-filter: blur(calc(var(--header-opacity, 0) * 8px));
 
   &__container {
@@ -33,6 +33,10 @@
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.05em;
+
+    @include m.respond-to(md) {
+      font-size: 1.75rem;
+    }
 
     i {
       color: v.$color-secondary;
@@ -75,13 +79,13 @@
       left: 0;
       width: 0;
       height: 2px;
-      background-color: v.$color-neon;
+      background-color: v.$color-secondary;
       box-shadow: 0 0 6px f.color-alpha(v.$color-neon, 0.6);
       transition: width 0.3 ease;
     }
 
     &:hover {
-      color: v.$color-neon;
+      color: v.$color-secondary;
 
       &::after {
         width: 100%;
@@ -99,10 +103,10 @@
     font-size: 1.25rem;
     cursor: pointer;
     padding: 0.25rem;
-    transition: color 0.3 ease;
 
     &:hover {
-      color: v.$color-text;
+      background-color: transparent;
+      color: v.$color-secondary;
     }
 
     @include m.respond-to(md) {
@@ -138,7 +142,7 @@
     transition: color 0.3 ease, background-color 0.3 ease;
 
     &:hover {
-      color: v.$color-neon;
+      color: v.$color-secondary;
       background-color: f.color-alpha(v.$color-secondary, 0.05);
     }
   }

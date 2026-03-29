@@ -19,6 +19,7 @@
 
   &__logo {
     display: flex;
+    align-items: center;
     gap: v.$spacing-xs;
     text-decoration: none;
     color: v.$color-text;

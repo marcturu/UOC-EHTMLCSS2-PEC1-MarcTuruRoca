@@ -30,6 +30,7 @@
     font-weight: 700;
     line-height: 1.2;
     color: v.$color-text;
+    margin-bottom: v.$spacing-lg;
 
     @include m.respond-to(md) {
       font-size: 2.5rem;
@@ -86,11 +87,10 @@
     .swiper-button-next {
       color: v.$color-neon;
       text-shadow: 0 0 8px f.color-alpha(v.$color-neon, 0.4);
-      transition: color 0.3s ease, scale 0.3s ease;
+      transition: color 0.15s ease;
 
       &:hover {
         color: v.$color-primary;
-        scale: 1.075;
       }
 
       &::after {

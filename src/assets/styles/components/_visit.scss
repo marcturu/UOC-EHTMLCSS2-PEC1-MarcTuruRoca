@@ -18,6 +18,7 @@
     font-size: 1.75rem;
     font-weight: 700;
     line-height: 1.2;
+    color: v.$color-text;
     margin-bottom: v.$spacing-lg;
 
     @include m.respond-to(md) {
@@ -46,8 +47,9 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
-      border-color: f.color-alpha(v.$color-neon, 0.6);
-      box-shadow: 0 0 20px f.color-alpha(v.$color-neon, 0.1);
+      box-shadow:
+        0 0 12px f.color-alpha(v.$color-neon, 0.2),
+        0 0 0 1px f.color-alpha(v.$color-neon, 0.3);
     }
   }
 
