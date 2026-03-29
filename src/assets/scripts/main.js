@@ -17,7 +17,7 @@ const lenis = new Lenis({
 
 function raf(time) {
   lenis.raf(time);
-  AOS.refresh();
+  //AOS.refresh();
   requestAnimationFrame(raf);
 }
 
@@ -33,14 +33,24 @@ setTimeout(() => {
   });
 }, 500) // Para intentar solucionar el problema de AOS y Lenis al mismo tiempo
 
+window.addEventListener('load', () => AOS.refresh());
+window.addEventListener('resize', () => AOS.refresh());
 
 /* ----- Swiper - gallery carousel ----- */
 new Swiper('.gallery__swiper', {
   modules: [Navigation, Pagination],
   loop: true,
-  centeredSlides: true,
+  grabCursor: true,
   slidesPerView: 1,
   spaceBetween: 16,
+  touchRatio: 1,
+  speed: 300,
+  threshold: 5,
+  touchStartPreventDefault: true,
+  passiveListeners: false,
+  touchReleaseOnEdges: true,
+  resistanceRatio: 0.85,
+  watchSlidesProgress: false,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
@@ -143,7 +153,17 @@ const updateHeaderOpacity = () => {
   header.style.setProperty('--header-opacity', getScrollOpacity())
 }
 
-window.addEventListener('scroll', updateHeaderOpacity)
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      updateHeaderOpacity();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
 
 /* Hamburguesa: abrir/cerrar menú mobile */
 menuBtn.addEventListener('click', () => {
