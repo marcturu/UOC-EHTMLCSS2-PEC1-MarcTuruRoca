@@ -58,7 +58,7 @@
   border: none;
   color: v.$color-background;
   font-size: 1rem;
-  text-shadow: 0 0 10px f.color-alpha(v.$color-neon, 0.8);
+  text-shadow: 0 0 5px f.color-alpha(v.$color-background, 0.75);
 }
 
 /* ----- Estilos añadidos dinámicamente en el javascript ----- */
