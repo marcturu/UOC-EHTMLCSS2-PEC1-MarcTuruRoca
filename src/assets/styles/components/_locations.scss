@@ -52,7 +52,7 @@
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: 0 0 4px f.color-alpha(v.$color-text, 0.2);
-  transition: transform 0.4 ease, box-shadow 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 
   &:hover {
     box-shadow:
