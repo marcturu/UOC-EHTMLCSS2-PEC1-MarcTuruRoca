@@ -3,7 +3,7 @@
 body {
   display: flex;
   flex-direction: column;
-  font-family: v.$font-primary;
+  font-family: v.$font-secondary;
   font-size: 1rem;
   color: v.$color-text;
   background-color: v.$color-background;
@@ -25,6 +25,10 @@ a {
   &:focus {
     color: v.$color-secondary;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: v.$font-primary;
 }
 
 h1 { font-size: 1.5rem; margin-bottom: v.$spacing-sm; }
