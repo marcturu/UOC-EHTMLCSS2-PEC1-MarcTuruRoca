@@ -40,10 +40,12 @@
   &__swiper {
     position: relative;
     overflow: visible;
+    touch-action: pan-y;
 
     .swiper-wrapper {
       display: flex;
       align-items: center;
+      touch-action: pan-y;
     }
 
     .swiper-slide {

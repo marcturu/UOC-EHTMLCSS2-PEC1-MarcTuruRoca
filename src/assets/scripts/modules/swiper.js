@@ -12,7 +12,7 @@ export function initSwiper() {
     speed: 300,
     threshold: 5,
     resistanceRatio: 0.85,
-    touchStartPreventDefault: true,
+    touchStartPreventDefault: false,
     passiveListeners: false,
     touchReleaseOnEdges: true,
     watchSlidesProgress: false,
