@@ -5,6 +5,14 @@
 .map-section {
   background-color: v.$color-background;
 
+  @include m.respond-to(md) {
+    padding-inline: v.$container-padding;
+  }
+
+  @include m.respond-to(lg) {
+    padding-inline: calc((100% - v.$container-max-width) / 2 + v.$container-padding);
+  }
+
   &__label {
     display: block;
     font-size: 0.75rem;

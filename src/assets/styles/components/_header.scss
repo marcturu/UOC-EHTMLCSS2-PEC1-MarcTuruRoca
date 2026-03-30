@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  padding-block: 1rem;
+  padding-block: v.$spacing-sm;
 
   // Estas 3 lineas calculan activamente la opacidad del header segun el valor --header-opacity al hacer scroll
   background-color: f.color-alpha(v.$color-background, var(--header-opacity, 0));
@@ -39,13 +39,19 @@
       font-size: 1.75rem;
     }
 
-    i {
-      color: v.$color-secondary;
-      text-shadow: 0 0 5px f.color-alpha(v.$color-neon, 0.25);
-    }
-
     &:hover {
       color: v.$color-neon;
+    }
+  }
+
+  &__logo-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+
+    @include m.respond-to(md) {
+      width: 3.5rem;
+      height: 3.5rem;
     }
   }
 

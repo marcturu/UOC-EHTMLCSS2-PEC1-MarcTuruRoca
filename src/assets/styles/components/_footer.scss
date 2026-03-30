@@ -27,18 +27,25 @@
     font-weight: 700;
     letter-spacing: 0.05em;
     margin-bottom: v.$spacing-sm;
+    font-family: v.$font-primary;
 
     @include m.respond-to(md) {
       margin-bottom: v.$spacing-xs;
     }
 
-    i {
-      color: v.$color-secondary;
-      text-shadow: 0 0 5px f.color-alpha(v.$color-neon, 0.25);
-    }
-
     &:hover {
       color: v.$color-neon;
+    }
+  }
+
+  &__logo-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+
+    @include m.respond-to(md) {
+      width: 3.5rem;
+      height: 3.5rem;
     }
   }
 

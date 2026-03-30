@@ -5,6 +5,7 @@ export function initHeader() {
   const menuBtn = document.querySelector('.header__menu-btn')
   const mobileNav = document.querySelector('.header__mobile-nav')
   const mobileLinks = document.querySelectorAll('.header__mobile-link')
+  const logo = document.querySelector('.header__logo')
 
   const getScrollOpacity = () => Math.min(window.scrollY / 1000, 1)
 
@@ -54,4 +55,15 @@ export function initHeader() {
       }, 100)
     })
   })
+
+  /* Cerrar menú (en mobile) al hacer click en el logo */
+  logo.addEventListener('click', () => {
+
+    mobileNav.classList.remove('header__mobile-nav--open')
+    menuBtn.setAttribute('aria-expanded', false)
+    menuBtn.querySelector('i').className = 'fa-solid fa-bars'
+    updateHeaderOpacity()
+  })
 }
+
+
