@@ -1,18 +1,18 @@
 @use "dependencies";
 
+@use "settings/fonts";
 @use "settings/variables";
 
 @use "tools/functions";
+@use "tools/mixins";
 
 @use "generic/reset";
 
 @use "elements/base";
 
 @use "objects/container";
-@use "objects/grid";
 @use "objects/section";
 
-@use "components/home";
 @use "components/header";
 @use "components/hero";
 @use "components/about";

@@ -1,14 +1,10 @@
 @use "sass:color";
 
-$mq-min-width: 420px;
-
 // Colors
 $color-background: #121212;
 $color-text: #fff;
 $color-primary: #339933;
 $color-secondary: #66cc66;
-$color-accent-warm: #88cc66;
-$color-accent-danger: #ff5733;
 $color-neon: #00ff88;
 
 // Fonts
@@ -20,7 +16,6 @@ $spacing-xs: 0.5rem;
 $spacing-sm: 1rem;
 $spacing-md: 2rem;
 $spacing-lg: 4rem;
-$spacing-xl: 8rem;
 
 // Breakingpoints
 $bp-sm: 480px;

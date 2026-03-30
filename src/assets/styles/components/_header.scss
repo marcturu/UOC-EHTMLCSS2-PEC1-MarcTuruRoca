@@ -70,7 +70,7 @@
     font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition: color 0.3 ease;
+    transition: color 0.3s ease;
     position: relative;
 
     &::after {
@@ -82,7 +82,7 @@
       height: 2px;
       background-color: v.$color-secondary;
       box-shadow: 0 0 6px f.color-alpha(v.$color-neon, 0.6);
-      transition: width 0.3 ease;
+      transition: width 0.3s ease;
     }
 
     &:hover {
@@ -140,7 +140,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.75rem v.$container-padding;
-    transition: color 0.3 ease, background-color 0.3 ease;
+    transition: color 0.3s ease, background-color 0.3s ease;
 
     &:hover {
       color: v.$color-secondary;

@@ -1,9 +1,5 @@
 @use "../settings/variables" as v;
 
-u.text-center {
-  text-align: center;
-}
-
 section[id] {
   scroll-margin-top: v.$spacing-lg;
 }
