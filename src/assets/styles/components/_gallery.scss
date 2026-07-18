@@ -39,7 +39,7 @@
 
   &__swiper {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     touch-action: pan-y;
 
     .swiper-wrapper {

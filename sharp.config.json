@@ -1,0 +1,15 @@
+{
+  "jpeg": {
+    "quality": 70,
+    "mozjpeg": true,
+    "progressive": true
+  },
+  "png": {
+    "compressionLevel": 9,
+    "progressive": true
+  },
+  "webp": {
+    "quality": 70,
+    "effort": 6
+  }
+}
