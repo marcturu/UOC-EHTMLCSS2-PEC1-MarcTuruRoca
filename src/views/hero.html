@@ -1,6 +1,7 @@
 <section class="hero" id="hero">
   <div class="hero__bg" ariahidden="true">
     <video
+      id="hero-video"
       class="hero__video"
       autoplay
       muted
@@ -8,7 +9,15 @@
       playsinline
       preload="metadata"
     >
-      <source src="./assets/videos/hero.mp4" type="video/mp4" />
+      <source
+        media="(max-width: 767px)"
+        src="./assets/videos/hero-mobile.mp4"
+        type="video/mp4"
+      />
+      <source
+        src="./assets/videos/hero-desktop.mp4"
+        type="video/mp4"
+      />
     </video>
   </div>
   <div class="hero__overlay" aria_hidden="true"></div>
